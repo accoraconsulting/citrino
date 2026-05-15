@@ -1,0 +1,8 @@
+{
+  "name": "citrino-tienda",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "groq-sdk": "^0.7.0"
+  }
+}

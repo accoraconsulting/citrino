@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Citrino Tienda | Catálogo de fragancias de inspiración</title>
+  <meta name="description" content="Explora el catálogo de Citrino Tienda y encuentra fragancias de inspiración para cada estilo, ocasión y personalidad. Consulta disponibilidad por WhatsApp.">
+  <meta name="theme-color" content="#D9B34A">
+
+  <!-- Open Graph -->
+  <meta property="og:title"       content="Citrino Tienda | Catálogo de fragancias de inspiración">
+  <meta property="og:description" content="Descubre aromas de inspiración seleccionados para quienes buscan elegancia, duración y una experiencia especial en cada detalle.">
+  <meta property="og:type"        content="website">
+  <meta property="og:image"       content="assets/img/og-image.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     HEADER
+     ═══════════════════════════════════════════════ -->
+<header id="header" class="site-header">
+  <div class="header-inner container">
+
+    <!-- Logo -->
+    <a href="#inicio" class="logo" aria-label="Citrino Tienda — Inicio">
+      <div class="logo-icon">
+        <svg width="34" height="34" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%"   stop-color="#B7832C"/>
+              <stop offset="50%"  stop-color="#D9B34A"/>
+              <stop offset="100%" stop-color="#FFE99A"/>
+            </linearGradient>
+          </defs>
+          <polygon points="24,3 45,17 24,45 3,17" fill="url(#lg1)"/>
+          <polygon points="24,3 45,17 24,25"       fill="rgba(255,255,255,0.16)"/>
+          <polygon points="3,17 24,25 24,45"        fill="rgba(0,0,0,0.13)"/>
+          <line x1="24" y1="3"  x2="24" y2="45" stroke="rgba(255,255,255,0.22)" stroke-width="0.7"/>
+          <line x1="3"  y1="17" x2="45" y2="17" stroke="rgba(255,255,255,0.15)" stroke-width="0.7"/>
+          <line x1="24" y1="3"  x2="3"  y2="17" stroke="rgba(255,255,255,0.1)"  stroke-width="0.5"/>
+          <line x1="24" y1="3"  x2="45" y2="17" stroke="rgba(255,255,255,0.1)"  stroke-width="0.5"/>
+        </svg>
+      </div>
+      <span class="logo-text">Citrino<span class="logo-text-accent">Tienda</span></span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="nav-desktop" aria-label="Navegación principal">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#categorias">Categorías</a></li>
+        <li><a href="#guia-de-aromas">Guía de aromas</a></li>
+        <li><a href="#como-comprar">Cómo comprar</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- Actions -->
+    <div class="header-actions">
+      <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema claro / oscuro">
+        <!-- Sun (dark mode) -->
+        <svg class="icon-sun" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <!-- Moon (light mode) -->
+        <svg class="icon-moon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+
+      <a href="#" id="header-whatsapp-btn" class="btn-primary btn-header-cta" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Consultar fragancia
+      </a>
+
+      <button class="hamburger" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <nav aria-label="Navegación móvil">
+      <ul>
+        <li><a href="#inicio"          class="mobile-nav-link">Inicio</a></li>
+        <li><a href="#catalogo"        class="mobile-nav-link">Catálogo</a></li>
+        <li><a href="#categorias"      class="mobile-nav-link">Categorías</a></li>
+        <li><a href="#guia-de-aromas"  class="mobile-nav-link">Guía de aromas</a></li>
+        <li><a href="#como-comprar"    class="mobile-nav-link">Cómo comprar</a></li>
+        <li><a href="#contacto"        class="mobile-nav-link">Contacto</a></li>
+      </ul>
+      <div class="mobile-menu-cta">
+        <a href="#" id="mobile-whatsapp-btn" class="btn-primary" target="_blank" rel="noopener">Consultar fragancia</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══════════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════════ -->
+<section id="inicio" class="hero-section">
+  <div class="container hero-container">
+
+    <!-- Left: Content -->
+    <div class="hero-content">
+      <div class="hero-badge fade-in">
+        <span aria-hidden="true">✦</span> Fragancias de inspiración seleccionadas
+      </div>
+
+      <h1 class="hero-title fade-in fd-1">
+        Fragancias que<br><em>elevan tu presencia</em>
+      </h1>
+
+      <p class="hero-text fade-in fd-2">
+        Descubre aromas de inspiración seleccionados para quienes buscan elegancia, duración y una experiencia especial en cada detalle.
+      </p>
+
+      <div class="hero-actions fade-in fd-3">
+        <a href="#catalogo" class="btn-primary btn-lg">
+          Ver catálogo
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+        <a href="#" class="btn-secondary btn-lg hero-whatsapp-btn" target="_blank" rel="noopener">
+          Consultar disponibilidad
+        </a>
+      </div>
+
+      <div class="hero-stats fade-in fd-4">
+        <div class="stat">
+          <span class="stat-number">12+</span>
+          <span class="stat-label">Fragancias</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Seleccionadas</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat">
+          <span class="stat-number">5 ★</span>
+          <span class="stat-label">Atención</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Visual -->
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-glow"></div>
+
+      <!-- Diamond -->
+      <div class="hero-diamond-container">
+        <svg class="hero-diamond-svg" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="hg1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%"   stop-color="#B7832C" stop-opacity="0.7"/>
+              <stop offset="50%"  stop-color="#D9B34A" stop-opacity="0.9"/>
+              <stop offset="100%" stop-color="#FFE99A" stop-opacity="0.45"/>
+            </linearGradient>
+            <linearGradient id="hg2" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%"   stop-color="#FFE99A" stop-opacity="0.3"/>
+              <stop offset="100%" stop-color="#B7832C" stop-opacity="0.5"/>
+            </linearGradient>
+          </defs>
+          <polygon points="150,18 285,108 150,282 15,108" stroke="url(#hg1)" stroke-width="1.6" fill="none"/>
+          <polygon points="150,46 255,108 150,254 45,108" stroke="url(#hg2)" stroke-width="0.9" fill="none" stroke-opacity="0.5"/>
+          <polygon points="150,76 220,112 150,228 80,112" stroke="url(#hg1)" stroke-width="0.5" fill="none" stroke-opacity="0.35"/>
+          <line x1="15"  y1="108" x2="285" y2="108" stroke="#D9B34A" stroke-width="0.5" stroke-opacity="0.28"/>
+          <line x1="150" y1="18"  x2="150" y2="282" stroke="#D9B34A" stroke-width="0.5" stroke-opacity="0.18"/>
+          <line x1="150" y1="18"  x2="15"  y2="108" stroke="#FFE99A" stroke-width="0.4" stroke-opacity="0.15"/>
+          <line x1="150" y1="18"  x2="285" y2="108" stroke="#FFE99A" stroke-width="0.4" stroke-opacity="0.15"/>
+          <line x1="15"  y1="108" x2="150" y2="282" stroke="#FFE99A" stroke-width="0.4" stroke-opacity="0.1"/>
+          <line x1="285" y1="108" x2="150" y2="282" stroke="#FFE99A" stroke-width="0.4" stroke-opacity="0.1"/>
+        </svg>
+      </div>
+
+      <!-- Sparkles -->
+      <span class="sparkle sparkle-1">✦</span>
+      <span class="sparkle sparkle-2">✦</span>
+      <span class="sparkle sparkle-3">✦</span>
+      <span class="sparkle sparkle-4">✦</span>
+      <span class="sparkle sparkle-5">✦</span>
+
+      <!-- Floating card (first product preview) -->
+      <div class="hero-float-card">
+        <div class="float-card-img">
+          <svg width="28" height="44" viewBox="0 0 28 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="9"  y="0"  width="10" height="5"  rx="1.5" fill="#D9B34A" opacity="0.8"/>
+            <rect x="10" y="5"  width="8"  height="7"  fill="#D9B34A" opacity="0.7"/>
+            <rect x="7"  y="10" width="14" height="3"  rx="1"   fill="#D9B34A"/>
+            <rect x="3"  y="13" width="22" height="28" rx="5"   fill="#D9B34A" opacity="0.55"/>
+            <rect x="6"  y="17" width="16" height="18" rx="3"   fill="white"   opacity="0.18"/>
+          </svg>
+        </div>
+        <div class="float-card-content">
+          <span class="float-card-tag">Más vendida</span>
+          <p class="float-card-name">Aurora Dorada</p>
+          <p class="float-card-family">Floral dulce · Dama</p>
+          <p class="float-card-price">$85.000</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     TRUST BAND
+     ═══════════════════════════════════════════════ -->
+<section class="trust-band" aria-label="Beneficios de Citrino Tienda">
+  <div class="trust-scroll">
+    <div class="trust-track" aria-hidden="true">
+      <div class="trust-item"><span class="trust-icon">◆</span><span>Aromas seleccionados</span></div>
+      <div class="trust-item"><span class="trust-icon">◆</span><span>Atención personalizada</span></div>
+      <div class="trust-item"><span class="trust-icon">◆</span><span>Catálogo actualizado</span></div>
+      <div class="trust-item"><span class="trust-icon">◆</span><span>Recomendación según tu estilo</span></div>
+      <div class="trust-item"><span class="trust-icon">◆</span><span>Entrega coordinada</span></div>
+      <div class="trust-item"><span class="trust-icon">◆</span><span>Fragancias de inspiración</span></div>
+      <div class="trust-item"><span class="trust-icon">◆</span><span>Aromas seleccionados</span></div>
+      <div class="trust-item"><span class="trust-icon">◆</span><span>Atención personalizada</span></div>
+      <div class="trust-item"><span class="trust-icon">◆</span><span>Catálogo actualizado</span></div>
+      <div class="trust-item"><span class="trust-icon">◆</span><span>Recomendación según tu estilo</span></div>
+      <div class="trust-item"><span class="trust-icon">◆</span><span>Entrega coordinada</span></div>
+      <div class="trust-item"><span class="trust-icon">◆</span><span>Fragancias de inspiración</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     CATEGORIES
+     ═══════════════════════════════════════════════ -->
+<section id="categorias" class="categories-section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-tag">Colecciones</span>
+      <h2 class="section-title">Explora por categoría</h2>
+      <div class="gold-divider"></div>
+      <p class="section-text">Cada fragancia tiene su momento. Encuentra tu estilo en nuestra selección de categorías.</p>
+    </div>
+
+    <div class="categories-grid">
+      <div class="category-card fade-in" data-filter-gender="Dama" role="button" tabindex="0" aria-label="Ver fragancias para Dama">
+        <div class="category-icon-wrap">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <circle cx="12" cy="8" r="4"/><path d="M12 12v8M9 18h6"/>
+          </svg>
+        </div>
+        <h3>Dama</h3>
+        <p>Aromas femeninos, luminosos y envolventes para diferentes momentos del día.</p>
+      </div>
+
+      <div class="category-card fade-in fd-1" data-filter-gender="Caballero" role="button" tabindex="0" aria-label="Ver fragancias para Caballero">
+        <div class="category-icon-wrap">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <circle cx="10.5" cy="10.5" r="5.5"/><line x1="14.5" y1="14.5" x2="21" y2="21"/>
+          </svg>
+        </div>
+        <h3>Caballero</h3>
+        <p>Fragancias con carácter, presencia y estilo para uso diario o momentos especiales.</p>
+      </div>
+
+      <div class="category-card fade-in fd-2" data-filter-gender="Unisex" role="button" tabindex="0" aria-label="Ver fragancias Unisex">
+        <div class="category-icon-wrap">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/>
+          </svg>
+        </div>
+        <h3>Unisex</h3>
+        <p>Aromas versátiles y modernos que se adaptan a distintas personalidades.</p>
+      </div>
+
+      <div class="category-card fade-in fd-3" data-filter-family="Dulce" role="button" tabindex="0" aria-label="Ver fragancias Dulces">
+        <div class="category-icon-wrap">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+          </svg>
+        </div>
+        <h3>Dulces</h3>
+        <p>Aromas cálidos, envolventes y gourmand que seducen desde el primer instante.</p>
+      </div>
+
+      <div class="category-card fade-in" data-filter-family="Fresca" role="button" tabindex="0" aria-label="Ver fragancias Frescas">
+        <div class="category-icon-wrap">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M12 2v6M12 22v-6M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M2 12h6M22 12h-6M4.93 19.07l4.24-4.24M14.83 9.17l4.24-4.24"/>
+          </svg>
+        </div>
+        <h3>Frescas</h3>
+        <p>Fragancias limpias, acuáticas y cítricas para un aura de energía y vitalidad.</p>
+      </div>
+
+      <div class="category-card fade-in fd-1" data-filter-family="Amaderada" role="button" tabindex="0" aria-label="Ver fragancias Amaderadas">
+        <div class="category-icon-wrap">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M17 8C8 10 5.9 16.17 3.82 19.29A2.96 2.96 0 0 0 6.03 22c2.44 0 4.23-2.35 5.97-4.5C16 12 19 9.5 21 9c0 0-2 2-1 5"/>
+            <path d="M17 8l2-5"/>
+          </svg>
+        </div>
+        <h3>Amaderadas</h3>
+        <p>Notas profundas de cedro, sándalo y oud para una presencia sofisticada.</p>
+      </div>
+
+      <div class="category-card fade-in fd-2" data-filter-family="Cítrica" role="button" tabindex="0" aria-label="Ver fragancias Cítricas">
+        <div class="category-icon-wrap">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 2C7.5 8.5 7.5 15.5 12 22M12 2C16.5 8.5 16.5 15.5 12 22"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+          </svg>
+        </div>
+        <h3>Cítricas</h3>
+        <p>Bergamota, limón y pomelo que aportan frescura vibrante y buen humor.</p>
+      </div>
+
+      <div class="category-card fade-in fd-3" data-filter-occasion="Noche" role="button" tabindex="0" aria-label="Ver fragancias para Noche">
+        <div class="category-icon-wrap">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </div>
+        <h3>Para noche</h3>
+        <p>Fragancias de mayor intensidad y carácter para eventos y momentos especiales.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     CATALOG
+     ═══════════════════════════════════════════════ -->
+<section id="catalogo" class="catalog-section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-tag">Catálogo</span>
+      <h2 class="section-title">Explora el catálogo Citrino</h2>
+      <div class="gold-divider"></div>
+      <p class="section-text">Encuentra una fragancia según tu estilo, ocasión o familia olfativa. Si no sabes cuál elegir, también podemos ayudarte por WhatsApp.</p>
+    </div>
+
+    <!-- Search + Sort -->
+    <div class="catalog-controls fade-in">
+      <div class="search-wrap">
+        <svg class="search-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="search" id="catalog-search" class="search-input" placeholder="Buscar fragancia…" aria-label="Buscar fragancias">
+      </div>
+      <div class="sort-wrap">
+        <label for="catalog-sort" class="sr-only">Ordenar productos</label>
+        <select id="catalog-sort" class="sort-select" aria-label="Ordenar por">
+          <option value="recommended">Recomendadas</option>
+          <option value="newest">Más recientes</option>
+          <option value="price-asc">Precio: menor a mayor</option>
+          <option value="price-desc">Precio: mayor a menor</option>
+        </select>
+        <svg class="sort-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="filter-groups fade-in" role="group" aria-label="Filtros del catálogo">
+      <div class="filter-group">
+        <span class="filter-group-label" id="lbl-gender">Género</span>
+        <div class="chips-row" role="group" aria-labelledby="lbl-gender">
+          <button class="filter-chip active" data-filter-type="gender" data-filter-value="all" aria-pressed="true">Todos</button>
+          <button class="filter-chip" data-filter-type="gender" data-filter-value="Dama" aria-pressed="false">Dama</button>
+          <button class="filter-chip" data-filter-type="gender" data-filter-value="Caballero" aria-pressed="false">Caballero</button>
+          <button class="filter-chip" data-filter-type="gender" data-filter-value="Unisex" aria-pressed="false">Unisex</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-group-label" id="lbl-family">Familia</span>
+        <div class="chips-row" role="group" aria-labelledby="lbl-family">
+          <button class="filter-chip active" data-filter-type="family" data-filter-value="all" aria-pressed="true">Todas</button>
+          <button class="filter-chip" data-filter-type="family" data-filter-value="Dulce" aria-pressed="false">Dulce</button>
+          <button class="filter-chip" data-filter-type="family" data-filter-value="Fresca" aria-pressed="false">Fresca</button>
+          <button class="filter-chip" data-filter-type="family" data-filter-value="Floral" aria-pressed="false">Floral</button>
+          <button class="filter-chip" data-filter-type="family" data-filter-value="Amaderada" aria-pressed="false">Amaderada</button>
+          <button class="filter-chip" data-filter-type="family" data-filter-value="Cítrica" aria-pressed="false">Cítrica</button>
+          <button class="filter-chip" data-filter-type="family" data-filter-value="Oriental" aria-pressed="false">Oriental</button>
+          <button class="filter-chip" data-filter-type="family" data-filter-value="Elegante" aria-pressed="false">Elegante</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-group-label" id="lbl-occasion">Ocasión</span>
+        <div class="chips-row" role="group" aria-labelledby="lbl-occasion">
+          <button class="filter-chip active" data-filter-type="occasion" data-filter-value="all" aria-pressed="true">Todas</button>
+          <button class="filter-chip" data-filter-type="occasion" data-filter-value="Diario" aria-pressed="false">Diario</button>
+          <button class="filter-chip" data-filter-type="occasion" data-filter-value="Oficina" aria-pressed="false">Oficina</button>
+          <button class="filter-chip" data-filter-type="occasion" data-filter-value="Cita" aria-pressed="false">Cita</button>
+          <button class="filter-chip" data-filter-type="occasion" data-filter-value="Noche" aria-pressed="false">Noche</button>
+          <button class="filter-chip" data-filter-type="occasion" data-filter-value="Eventos" aria-pressed="false">Eventos</button>
+          <button class="filter-chip" data-filter-type="occasion" data-filter-value="Regalo" aria-pressed="false">Regalo</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results bar -->
+    <div class="results-bar fade-in">
+      <p class="results-count" id="results-count" aria-live="polite" aria-atomic="true">
+        <strong>12</strong> fragancias encontradas
+      </p>
+      <button class="btn-ghost clear-filters-btn" id="clear-filters" style="display:none" aria-label="Limpiar todos los filtros">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+        Limpiar filtros
+      </button>
+    </div>
+
+    <!-- Grid -->
+    <div class="products-grid" id="products-grid" role="list" aria-label="Catálogo de fragancias"></div>
+
+    <!-- Empty state -->
+    <div class="empty-state" id="empty-state" hidden role="status">
+      <div class="empty-state-icon" aria-hidden="true">◇</div>
+      <h3>Sin resultados</h3>
+      <p>No encontramos fragancias con esos filtros. Prueba con una búsqueda diferente o limpia los filtros.</p>
+      <button class="btn-secondary" id="clear-filters-2">Ver todas las fragancias</button>
+    </div>
+
+    <!-- Paginación -->
+    <nav class="catalog-pagination" id="catalog-pagination" aria-label="Navegación de páginas" hidden>
+      <button class="page-btn page-prev" id="page-prev" aria-label="Página anterior">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="page-numbers" id="page-numbers" role="list"></div>
+      <button class="page-btn page-next" id="page-next" aria-label="Página siguiente">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </nav>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     AROMA GUIDE
+     ═══════════════════════════════════════════════ -->
+<section id="guia-de-aromas" class="aroma-guide-section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-tag">Guía olfativa</span>
+      <h2 class="section-title">Encuentra tu aroma ideal</h2>
+      <div class="gold-divider"></div>
+      <p class="section-text">Cada fragancia comunica algo. Te ayudamos a elegir una opción que combine con tu estilo, tu momento y la impresión que quieres dejar.</p>
+    </div>
+
+    <div class="aroma-guide-grid">
+      <div class="aroma-card fade-in">
+        <div class="aroma-card-icon">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <h3>Para uso diario</h3>
+        <p>Aromas frescos, limpios y ligeros para acompañarte sin sentirse pesados.</p>
+        <button class="btn-outline-gold aroma-cta-btn" data-occasion="uso diario">Pedir recomendación</button>
+      </div>
+
+      <div class="aroma-card fade-in fd-1">
+        <div class="aroma-card-icon">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+          </svg>
+        </div>
+        <h3>Para oficina</h3>
+        <p>Fragancias elegantes, discretas y profesionales para proyectar seguridad.</p>
+        <button class="btn-outline-gold aroma-cta-btn" data-occasion="la oficina">Pedir recomendación</button>
+      </div>
+
+      <div class="aroma-card fade-in fd-2">
+        <div class="aroma-card-icon">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
+        <h3>Para una cita</h3>
+        <p>Aromas cálidos, envolventes y memorables para momentos especiales.</p>
+        <button class="btn-outline-gold aroma-cta-btn" data-occasion="una cita">Pedir recomendación</button>
+      </div>
+
+      <div class="aroma-card fade-in fd-3">
+        <div class="aroma-card-icon">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </div>
+        <h3>Para noche y eventos</h3>
+        <p>Fragancias con mayor intensidad, presencia y carácter para ocasiones memorables.</p>
+        <button class="btn-outline-gold aroma-cta-btn" data-occasion="una noche o evento especial">Pedir recomendación</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     HOW TO BUY
+     ═══════════════════════════════════════════════ -->
+<section id="como-comprar" class="how-to-buy-section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-tag">Proceso</span>
+      <h2 class="section-title">Comprar en Citrino es muy fácil</h2>
+      <div class="gold-divider"></div>
+      <p class="section-text">Explora, consulta y coordina tu pedido de forma directa por WhatsApp.</p>
+    </div>
+
+    <div class="steps-container">
+      <div class="step fade-in">
+        <div class="step-number" aria-hidden="true">01</div>
+        <div class="step-content">
+          <h3>Explora el catálogo</h3>
+          <p>Navega entre nuestras fragancias, usa los filtros y descubre opciones para tu estilo.</p>
+        </div>
+      </div>
+      <div class="step fade-in fd-1">
+        <div class="step-number" aria-hidden="true">02</div>
+        <div class="step-content">
+          <h3>Elige la que te interesa</h3>
+          <p>Abre el detalle del producto para conocer sus notas, intensidad y duración.</p>
+        </div>
+      </div>
+      <div class="step fade-in fd-2">
+        <div class="step-number" aria-hidden="true">03</div>
+        <div class="step-content">
+          <h3>Consulta por WhatsApp</h3>
+          <p>Escríbenos con tu fragancia de interés para confirmar disponibilidad.</p>
+        </div>
+      </div>
+      <div class="step fade-in fd-3">
+        <div class="step-number" aria-hidden="true">04</div>
+        <div class="step-content">
+          <h3>Coordina entrega y pago</h3>
+          <p>Acordamos la forma de entrega y método de pago según tu conveniencia.</p>
+        </div>
+      </div>
+      <div class="step fade-in fd-4">
+        <div class="step-number" aria-hidden="true">05</div>
+        <div class="step-content">
+          <h3>Recibe tu pedido</h3>
+          <p>Tu fragancia llega a tus manos con el cuidado que merece.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     WHY CITRINO
+     ═══════════════════════════════════════════════ -->
+<section class="why-citrino-section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-tag">Nuestra esencia</span>
+      <h2 class="section-title">Por qué elegir Citrino Tienda</h2>
+      <div class="gold-divider"></div>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card fade-in">
+        <div class="why-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <h3>Selección con intención</h3>
+        <p>No se trata de vender cualquier fragancia, sino de ayudarte a encontrar una opción que conecte con tu estilo y personalidad.</p>
+      </div>
+
+      <div class="why-card fade-in fd-1">
+        <div class="why-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <h3>Atención cercana</h3>
+        <p>Puedes consultar antes de comprar y recibir orientación según ocasión, intensidad o preferencia olfativa.</p>
+      </div>
+
+      <div class="why-card fade-in fd-2">
+        <div class="why-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+            <line x1="7" y1="7" x2="7.01" y2="7"/>
+          </svg>
+        </div>
+        <h3>Presentación cuidada</h3>
+        <p>La experiencia visual y el cuidado en cada detalle hacen parte de la esencia y el valor de la marca.</p>
+      </div>
+
+      <div class="why-card fade-in fd-3">
+        <div class="why-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <line x1="8"  y1="6"  x2="21" y2="6"/><line x1="8"  y1="12" x2="21" y2="12"/>
+            <line x1="8"  y1="18" x2="21" y2="18"/><line x1="3"  y1="6"  x2="3.01" y2="6"/>
+            <line x1="3"  y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
+          </svg>
+        </div>
+        <h3>Catálogo claro</h3>
+        <p>Cada fragancia está organizada para que puedas elegir con mayor seguridad, claridad y confianza.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     CONTACT
+     ═══════════════════════════════════════════════ -->
+<section id="contacto" class="contact-section">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-content fade-in">
+        <span class="section-tag">Contáctanos</span>
+        <h2 class="contact-title">Tu próxima fragancia puede empezar con una simple consulta</h2>
+        <p class="contact-text">Escríbenos y te ayudamos a encontrar una fragancia que se adapte a tu estilo, ocasión y preferencia.</p>
+        <div class="contact-actions">
+          <a href="#" id="contact-whatsapp-btn" class="btn-primary btn-lg" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Escribir por WhatsApp
+          </a>
+          <a href="#catalogo" class="btn-secondary btn-lg">Ver catálogo</a>
+        </div>
+      </div>
+
+      <div class="contact-info fade-in fd-2">
+        <div class="contact-detail">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          <div>
+            <strong>WhatsApp</strong>
+            <p id="contact-whatsapp-display">+57 300 000 0000</p>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+          <div>
+            <strong>Instagram</strong>
+            <p id="contact-instagram-display">@citrinotienda</p>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+          <div>
+            <strong>Horario de atención</strong>
+            <p id="contact-hours-display">Lun – Sáb: 9:00 am – 7:00 pm</p>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <div>
+            <strong>Zona de cobertura</strong>
+            <p id="contact-coverage-display">Medellín y área metropolitana</p>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          <div>
+            <strong>Dirección</strong>
+            <p>Cra. 46D #76 Sur-69, Medellín</p>
+            <a href="https://maps.google.com/?q=Cra.+46D+%2376+Sur-69,+Medell%C3%ADn"
+               target="_blank" rel="noopener noreferrer"
+               class="contact-maps-link"
+               aria-label="Ver en Google Maps">
+              📍 Ver en Google Maps
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════ -->
+<footer class="site-footer" aria-label="Pie de página">
+  <div class="container">
+    <div class="footer-inner">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <a href="#inicio" class="footer-logo" aria-label="Citrino Tienda">
+          <svg width="30" height="30" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="flg" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%"   stop-color="#B7832C"/>
+                <stop offset="50%"  stop-color="#D9B34A"/>
+                <stop offset="100%" stop-color="#FFE99A"/>
+              </linearGradient>
+            </defs>
+            <polygon points="24,3 45,17 24,45 3,17" fill="url(#flg)"/>
+            <polygon points="24,3 45,17 24,24" fill="rgba(255,255,255,0.15)"/>
+            <polygon points="3,17 24,24 24,45"  fill="rgba(0,0,0,0.12)"/>
+          </svg>
+          <span>Citrino<strong>Tienda</strong></span>
+        </a>
+        <p class="footer-tagline">Fragancias de inspiración seleccionadas para resaltar tu estilo en cada momento.</p>
+        <div class="footer-social">
+          <a href="#" id="footer-instagram" class="social-btn" aria-label="Instagram de Citrino Tienda" target="_blank" rel="noopener">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <a href="#" id="footer-whatsapp" class="social-btn" aria-label="WhatsApp de Citrino Tienda" target="_blank" rel="noopener">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div class="footer-links-group">
+        <h4>Catálogo</h4>
+        <ul>
+          <li><a href="#catalogo">Ver fragancias</a></li>
+          <li><a href="#categorias">Categorías</a></li>
+          <li><a href="#guia-de-aromas">Guía de aromas</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Comprar</h4>
+        <ul>
+          <li><a href="#como-comprar">Cómo comprar</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#" id="footer-cta-whatsapp" target="_blank" rel="noopener">Consultar disponibilidad</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="footer-divider">
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">© 2026 Citrino Tienda. Todos los derechos reservados.</p>
+      <p class="footer-legal">Citrino Tienda ofrece fragancias de inspiración. Las marcas mencionadas, si aparecen, pertenecen a sus respectivos propietarios. No somos distribuidores oficiales de marcas registradas.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════
+     PRODUCT MODAL
+     ═══════════════════════════════════════════════ -->
+<div id="product-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-product-name" aria-hidden="true">
+  <div class="modal-container" tabindex="-1">
+    <button class="modal-close" id="modal-close" aria-label="Cerrar detalle del producto">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     BOTTOM NAV — Mobile app navigation
+     ═══════════════════════════════════════════════ -->
+<nav class="bottom-nav" id="bottom-nav" aria-label="Navegación móvil">
+
+  <a href="#inicio" class="bnav-item bnav-active" data-bnav="inicio" aria-label="Inicio">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+      <polyline points="9 22 9 12 15 12 15 22"/>
+    </svg>
+    <span>Inicio</span>
+  </a>
+
+  <a href="#catalogo" class="bnav-item" data-bnav="catalogo" aria-label="Catálogo">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <rect x="3" y="3" width="7" height="7" rx="1"/>
+      <rect x="14" y="3" width="7" height="7" rx="1"/>
+      <rect x="3" y="14" width="7" height="7" rx="1"/>
+      <rect x="14" y="14" width="7" height="7" rx="1"/>
+    </svg>
+    <span>Catálogo</span>
+  </a>
+
+  <a href="#guia-de-aromas" class="bnav-item" data-bnav="guia" aria-label="Guía de aromas">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+      <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+      <line x1="9" y1="9" x2="9.01" y2="9"/>
+      <line x1="15" y1="9" x2="15.01" y2="9"/>
+    </svg>
+    <span>Aromas</span>
+  </a>
+
+  <a href="https://wa.me/573128839146?text=Hola%2C%20vengo%20del%20cat%C3%A1logo%20de%20Citrino%20Tienda%20y%20quiero%20consultar"
+     class="bnav-item bnav-wa" data-bnav="wa"
+     target="_blank" rel="noopener noreferrer"
+     aria-label="Contactar por WhatsApp">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span>WhatsApp</span>
+  </a>
+
+</nav>
+
+<!-- Scripts -->
+<script src="assets/js/products.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/chat.js"></script>
+<script>
+/* ── Bottom nav active state on scroll ── */
+(function () {
+  const items = document.querySelectorAll('.bnav-item[data-bnav]');
+  const sections = [
+    { id: 'inicio',         el: document.getElementById('inicio') },
+    { id: 'catalogo',       el: document.getElementById('catalogo') },
+    { id: 'guia',           el: document.getElementById('guia-de-aromas') }
+  ];
+  function updateActive() {
+    const mid = window.scrollY + window.innerHeight / 2;
+    let current = 'inicio';
+    sections.forEach(s => {
+      if (s.el && s.el.offsetTop <= mid) current = s.id;
+    });
+    items.forEach(item => {
+      const isWa = item.dataset.bnav === 'wa';
+      if (!isWa) item.classList.toggle('bnav-active', item.dataset.bnav === current);
+    });
+  }
+  window.addEventListener('scroll', updateActive, { passive: true });
+  updateActive();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+# Dependencias
+node_modules/
+
+# Archivos de entorno
+.env
+.env.local
+
+# Carpeta de Claude
+.claude/
+
+# Documentos
+*.md
+*.txt
+*.doc
+*.docx
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini

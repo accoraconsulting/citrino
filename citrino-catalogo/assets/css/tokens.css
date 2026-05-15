@@ -1,0 +1,115 @@
+/* =====================================================
+   CITRINO TIENDA — Design Tokens
+   ===================================================== */
+
+:root {
+  /* Brand palette */
+  --citrino-gold:       #D9B34A;
+  --citrino-gold-soft:  #F4D96A;
+  --citrino-gold-light: #FFE99A;
+  --citrino-gold-deep:  #B7832C;
+  --citrino-bronze:     #8A5A1F;
+  --citrino-brown:      #5C3A14;
+  --citrino-cream:      #F8F5EF;
+
+  /* Gradients */
+  --gold-gradient:      linear-gradient(135deg, #B7832C 0%, #D9B34A 45%, #FFE99A 100%);
+  --gold-gradient-r:    linear-gradient(135deg, #FFE99A 0%, #D9B34A 55%, #B7832C 100%);
+  --soft-gold-glow:     radial-gradient(circle, rgba(244,217,106,0.22), transparent 62%);
+  --dark-gold-glow:     radial-gradient(circle, rgba(244,217,106,0.16), transparent 65%);
+
+  /* Typography */
+  --font-display: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-body:    'DM Sans', 'Inter', system-ui, sans-serif;
+
+  /* Scale */
+  --text-xs:   0.6875rem;
+  --text-sm:   0.8125rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  1.875rem;
+  --text-4xl:  2.375rem;
+  --text-5xl:  3.125rem;
+  --text-6xl:  4rem;
+  --text-7xl:  5rem;
+
+  /* Spacing */
+  --sp-1: 0.25rem;  --sp-2: 0.5rem;  --sp-3: 0.75rem; --sp-4: 1rem;
+  --sp-5: 1.25rem;  --sp-6: 1.5rem;  --sp-8: 2rem;    --sp-10: 2.5rem;
+  --sp-12: 3rem;    --sp-16: 4rem;   --sp-20: 5rem;   --sp-24: 6rem;
+  --sp-32: 8rem;
+
+  /* Radius */
+  --r-sm:   0.375rem;
+  --r-md:   0.75rem;
+  --r-lg:   1rem;
+  --r-xl:   1.5rem;
+  --r-2xl:  2rem;
+  --r-full: 9999px;
+
+  /* Transitions */
+  --t-fast:   150ms ease;
+  --t-base:   250ms ease;
+  --t-slow:   420ms ease;
+  --t-theme:  300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Easing */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ── Light theme (default) ─────────────────────────── */
+:root,
+[data-theme="light"] {
+  --bg-main:         #FFFEFA;
+  --bg-secondary:    #F8F5EF;
+  --surface:         #FFFFFF;
+  --surface-soft:    #FFF9EA;
+  --text-main:       #1F1A14;
+  --text-secondary:  #6F6254;
+  --text-muted:      #9D8E7A;
+  --heading:         #3A250D;
+  --accent:          #D9B34A;
+  --accent-strong:   #B7832C;
+  --accent-soft:     #F4D96A;
+  --border:          #E8DCC2;
+  --border-strong:   #C9B48A;
+  --shadow-sm:       0 2px 8px rgba(92,58,20,0.09);
+  --shadow-md:       0 6px 24px rgba(92,58,20,0.13);
+  --shadow-lg:       0 16px 48px rgba(92,58,20,0.16);
+  --shadow-gold:     0 8px 32px rgba(217,179,74,0.22);
+  --overlay:         rgba(15,13,10,0.55);
+  --header-bg:       rgba(255,254,250,0.88);
+  --chip-bg:         rgba(217,179,74,0.08);
+  --chip-active-bg:  #D9B34A;
+  --chip-active-text:#FFFFFF;
+  --trust-bg:        #F5F0E4;
+}
+
+/* ── Dark theme ───────────────────────────────────── */
+[data-theme="dark"] {
+  --bg-main:         #0F0D0A;
+  --bg-secondary:    #17130E;
+  --surface:         #1F1A14;
+  --surface-soft:    #251D13;
+  --text-main:       #FFF8E7;
+  --text-secondary:  #CDBF9B;
+  --text-muted:      #7A6E58;
+  --heading:         #FFE99A;
+  --accent:          #F4D96A;
+  --accent-strong:   #C08A2E;
+  --accent-soft:     #FFE99A;
+  --border:          rgba(244,217,106,0.16);
+  --border-strong:   rgba(244,217,106,0.28);
+  --shadow-sm:       0 2px 8px rgba(0,0,0,0.3);
+  --shadow-md:       0 6px 24px rgba(0,0,0,0.45);
+  --shadow-lg:       0 16px 48px rgba(0,0,0,0.6);
+  --shadow-gold:     0 8px 32px rgba(244,217,106,0.12);
+  --overlay:         rgba(0,0,0,0.78);
+  --header-bg:       rgba(15,13,10,0.92);
+  --chip-bg:         rgba(244,217,106,0.07);
+  --chip-active-bg:  #F4D96A;
+  --chip-active-text:#0F0D0A;
+  --trust-bg:        #17130E;
+}
