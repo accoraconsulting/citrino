@@ -614,11 +614,18 @@ function openModal(productId, preselectedMl) {
 }
 
 function closeModal() {
-  const overlay = document.getElementById('product-modal');
+  const overlay   = document.getElementById('product-modal');
+  const container = overlay.querySelector('.modal-container');
   overlay.classList.remove('open');
   overlay.setAttribute('aria-hidden', 'true');
 
-  /* Restore scroll */
+  /* Clear any inline styles left over from a swipe so CSS transition can run cleanly */
+  if (container) {
+    container.style.transform  = '';
+    container.style.transition = '';
+  }
+
+  /* Restore page scroll (iOS-safe) */
   const scrollY = parseInt(document.body.dataset.scrollY || '0');
   document.documentElement.style.overflow = '';
   document.body.style.overflow  = '';
@@ -670,9 +677,14 @@ function initModal() {
   }, { passive: false });
 
   swipeZone.addEventListener('touchend', e => {
+    /* If we never started swiping, nothing to undo — leave inline styles alone */
+    if (!isSwiping) {
+      container.style.transition = '';
+      return;
+    }
     const dy = e.changedTouches[0].clientY - swipeStartY;
     container.style.transition = 'transform 0.32s cubic-bezier(0.32,0.72,0,1)';
-    if (isSwiping && dy > 80) {
+    if (dy > 80) {
       container.style.transform = 'translateY(110%)';
       setTimeout(() => {
         container.style.transform  = '';

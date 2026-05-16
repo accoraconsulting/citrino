@@ -16,15 +16,27 @@
    BASE — Mobile (< 480px)
    ───────────────────────────────────────────────────── */
 
-/* Prevent horizontal overflow (fixes forced zoom-out bug) */
-html { overflow-x: hidden; }
-
-/* Safe area + bottom nav clearance */
-body {
-  padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+/* Prevent horizontal overflow.
+   IMPORTANT: only on <html>, NOT on <body>.
+   Setting overflow-x:hidden on both creates dueling scroll containers on iOS Safari,
+   which breaks vertical scrolling in arbitrary regions of the page. */
+html {
   overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+}
+
+/* Body: no overflow-x lock here. Touch-action explicitly allows native vertical pan. */
+body {
+  padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px));
+  position: relative;
+  width: 100%;
+  touch-action: pan-y;
+}
+
+/* Eliminate 300ms tap delay and ensure interactions don't block scroll on every tappable element */
+button, a, [role="button"], input, select, textarea {
+  touch-action: manipulation;
 }
 
 /* ── Header ── */
@@ -309,15 +321,13 @@ footer        { padding: var(--sp-10) 0 var(--sp-6); }
 .bnav-item     { padding: 5px 2px; font-size: 9px; gap: 2px; }
 .bnav-item svg { width: 20px; height: 20px; }
 
-/* ── Touch targets ── */
+/* ── Touch targets — min sizes for thumb tappability ── */
 button, a, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .filter-chip     { min-height: 44px; padding: 0 14px; }
-.card-btn-detail { min-height: 44px; touch-action: manipulation; }
-.card-btn-wa     { min-height: 44px; width: 44px; touch-action: manipulation; }
-.card-size-chip  { min-height: 36px; touch-action: manipulation; }
-.size-btn        { touch-action: manipulation; }
-.aroma-cta-btn   { touch-action: manipulation; }
-.bnav-item       { touch-action: manipulation; }
+.card-btn-detail { min-height: 44px; }
+.card-btn-wa     { min-height: 44px; width: 44px; }
+.card-size-chip  { min-height: 36px; }
+
 /* Swipe zone — shown only on mobile */
 .modal-swipe-zone { display: block; }
 
