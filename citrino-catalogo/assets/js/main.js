@@ -600,12 +600,16 @@ function openModal(productId, preselectedMl) {
 
   overlay.classList.add('open');
   overlay.removeAttribute('aria-hidden');
+
   /* iOS-safe scroll lock */
   const scrollY = window.scrollY;
   document.body.dataset.scrollY = scrollY;
-  document.body.style.position = 'fixed';
-  document.body.style.top      = `-${scrollY}px`;
-  document.body.style.width    = '100%';
+  document.documentElement.style.overflow = 'hidden';
+  document.body.style.overflow  = 'hidden';
+  document.body.style.position  = 'fixed';
+  document.body.style.top       = `-${scrollY}px`;
+  document.body.style.width     = '100%';
+
   overlay.querySelector('.modal-container').focus();
 }
 
@@ -613,22 +617,79 @@ function closeModal() {
   const overlay = document.getElementById('product-modal');
   overlay.classList.remove('open');
   overlay.setAttribute('aria-hidden', 'true');
-  /* Restore scroll position */
+
+  /* Restore scroll */
   const scrollY = parseInt(document.body.dataset.scrollY || '0');
-  document.body.style.position = '';
-  document.body.style.top      = '';
-  document.body.style.width    = '';
+  document.documentElement.style.overflow = '';
+  document.body.style.overflow  = '';
+  document.body.style.position  = '';
+  document.body.style.top       = '';
+  document.body.style.width     = '';
   window.scrollTo(0, scrollY);
 }
 
 function initModal() {
-  const overlay  = document.getElementById('product-modal');
-  const closeBtn = document.getElementById('modal-close');
+  const overlay   = document.getElementById('product-modal');
+  const closeBtn  = document.getElementById('modal-close');
+  const container = overlay.querySelector('.modal-container');
+
   closeBtn.addEventListener('click', closeModal);
   overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
   });
+
+  /* Prevent page scroll while modal is open — overlay touchmove only */
+  overlay.addEventListener('touchmove', e => {
+    const modalBody = document.getElementById('modal-body');
+    if (!modalBody || !modalBody.contains(e.target)) e.preventDefault();
+  }, { passive: false });
+
+  /* ── Swipe-down to close ── */
+  let swipeStartY = 0;
+  let swipeStartScroll = 0;
+  let isSwiping = false;
+
+  container.addEventListener('touchstart', e => {
+    const body = document.getElementById('modal-body');
+    swipeStartY      = e.touches[0].clientY;
+    swipeStartScroll = body ? body.scrollTop : 0;
+    isSwiping        = false;
+    container.style.transition = 'none';
+  }, { passive: true });
+
+  container.addEventListener('touchmove', e => {
+    const dy = e.touches[0].clientY - swipeStartY;
+    if (dy > 8 && swipeStartScroll <= 0) {
+      isSwiping = true;
+      container.style.transform = `translateY(${dy}px)`;
+      e.preventDefault();
+    } else if (isSwiping && dy > 0) {
+      container.style.transform = `translateY(${dy}px)`;
+      e.preventDefault();
+    }
+  }, { passive: false });
+
+  container.addEventListener('touchend', e => {
+    const dy = e.changedTouches[0].clientY - swipeStartY;
+    container.style.transition = 'transform 0.32s cubic-bezier(0.32,0.72,0,1)';
+
+    if (isSwiping && dy > 90) {
+      container.style.transform = 'translateY(110%)';
+      setTimeout(() => {
+        container.style.transform  = '';
+        container.style.transition = '';
+        closeModal();
+      }, 320);
+    } else {
+      container.style.transform = 'translateY(0)';
+      setTimeout(() => {
+        container.style.transform  = '';
+        container.style.transition = '';
+      }, 320);
+    }
+    isSwiping = false;
+  }, { passive: true });
 }
 
 /* ── Scroll animations ────────────────────────────── */

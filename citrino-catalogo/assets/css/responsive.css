@@ -128,8 +128,8 @@ body {
 .card-name        { font-size: var(--text-sm); }
 .card-price       { font-size: var(--text-base); }
 .card-actions     { gap: var(--sp-2); padding-top: var(--sp-2); }
-.card-btn-detail  { height: 40px; font-size: 11px; border-radius: var(--r-md); }
-.card-btn-wa      { width: 40px; height: 40px; border-radius: var(--r-md); flex-shrink: 0; }
+.card-btn-detail  { height: 44px; font-size: 11px; border-radius: var(--r-md); touch-action: manipulation; }
+.card-btn-wa      { width: 44px; height: 44px; border-radius: var(--r-md); flex-shrink: 0; touch-action: manipulation; }
 .card-badge       { height: 20px; font-size: 9px; padding: 0 8px; }
 
 /* Pagination */
@@ -139,10 +139,11 @@ body {
 /* ── Aroma guide ── */
 .aroma-guide-section { padding: var(--sp-12) 0; }
 .aroma-guide-grid    { grid-template-columns: repeat(2, 1fr); gap: var(--sp-3); }
-.aroma-card          { padding: var(--sp-4) var(--sp-4); gap: var(--sp-3); }
+.aroma-card          { padding: var(--sp-4) var(--sp-3); gap: var(--sp-3); }
 .aroma-card-icon     { width: 44px; height: 44px; }
-.aroma-card h3       { font-size: var(--text-lg); }
-.aroma-card p        { font-size: var(--text-sm); }
+.aroma-card h3       { font-size: var(--text-base); }
+.aroma-card p        { font-size: 12px; line-height: 1.5; }
+.aroma-cta-btn       { width: 100%; justify-content: center; white-space: normal; text-align: center; font-size: 11px; padding: 9px 10px; line-height: 1.3; }
 
 /* ── Steps ── */
 .how-to-buy-section { padding: var(--sp-12) 0; }
@@ -252,18 +253,19 @@ footer        { padding: var(--sp-10) 0 var(--sp-6); }
   border-right: none;
   border-bottom: 1px solid var(--border);
   border-radius: 0;
-  padding: 14px 20px;
-  max-height: 155px;
-  min-height: 130px;
+  padding: 10px 20px;
+  max-height: 115px;
+  min-height: 95px;
   background: radial-gradient(ellipse 70% 80% at 50% 60%, rgba(217,179,74,0.08) 0%, transparent 70%), var(--surface-soft);
 }
-.modal-info-col     { padding: 18px 20px 28px; gap: 14px; }
-.modal-product-name { font-size: 1.45rem; }
-.modal-notes        { grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 12px; }
+.modal-bottle-wrap  { width: 68px; }
+.modal-info-col     { padding: 16px 20px 32px; gap: 12px; }
+.modal-product-name { font-size: 1.35rem; }
+.modal-notes        { grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 10px; }
 .modal-details-row  { flex-wrap: wrap; gap: 8px; }
-.modal-detail-chip  { min-width: 80px; flex: 1; }
-.modal-footer       { flex-direction: column; padding-top: 14px; }
-.modal-footer .btn-primary { width: 100%; justify-content: center; font-size: var(--text-sm); padding: 14px; }
+.modal-detail-chip  { min-width: 80px; flex: 1; padding: 10px 12px; }
+.modal-footer       { flex-direction: column; padding-top: 14px; gap: 10px; }
+.modal-footer .btn-primary { width: 100%; justify-content: center; font-size: var(--text-sm); padding: 15px; }
 
 /* ── Bottom nav — 4 ítems siempre visibles ── */
 .bottom-nav {
@@ -380,7 +382,8 @@ button, a, [role="button"] { -webkit-tap-highlight-color: transparent; }
   .aroma-card       { padding: var(--sp-8) var(--sp-6); gap: var(--sp-4); }
   .aroma-card-icon  { width: 58px; height: 58px; }
   .aroma-card h3    { font-size: var(--text-2xl); }
-  .aroma-card p     { font-size: var(--text-base); }
+  .aroma-card p     { font-size: var(--text-base); line-height: 1.65; }
+  .aroma-cta-btn    { width: auto; white-space: nowrap; font-size: var(--text-sm); padding: 11px 22px; line-height: normal; }
   .why-grid         { grid-template-columns: repeat(2, 1fr); gap: var(--sp-5); }
   .why-card         { padding: var(--sp-8) var(--sp-6); gap: var(--sp-4); }
   .why-icon         { width: 52px; height: 52px; }
