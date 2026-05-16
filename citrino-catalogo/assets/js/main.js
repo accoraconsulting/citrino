@@ -600,7 +600,12 @@ function openModal(productId, preselectedMl) {
 
   overlay.classList.add('open');
   overlay.removeAttribute('aria-hidden');
-  document.body.style.overflow = 'hidden';
+  /* iOS-safe scroll lock */
+  const scrollY = window.scrollY;
+  document.body.dataset.scrollY = scrollY;
+  document.body.style.position = 'fixed';
+  document.body.style.top      = `-${scrollY}px`;
+  document.body.style.width    = '100%';
   overlay.querySelector('.modal-container').focus();
 }
 
@@ -608,7 +613,12 @@ function closeModal() {
   const overlay = document.getElementById('product-modal');
   overlay.classList.remove('open');
   overlay.setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
+  /* Restore scroll position */
+  const scrollY = parseInt(document.body.dataset.scrollY || '0');
+  document.body.style.position = '';
+  document.body.style.top      = '';
+  document.body.style.width    = '';
+  window.scrollTo(0, scrollY);
 }
 
 function initModal() {
@@ -631,6 +641,24 @@ function initScrollAnimations() {
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 }
 
+/* ── Hero Carousel ───────────────────────────────── */
+function initHeroCarousel() {
+  const carousel = document.getElementById('hero-carousel');
+  if (!carousel) return;
+
+  const cards = carousel.querySelectorAll('.hero-float-card');
+  const COUNT = cards.length;
+  let current = 0;
+
+  function goTo(idx) {
+    cards[current].classList.remove('hfc-active');
+    current = (idx + COUNT) % COUNT;
+    cards[current].classList.add('hfc-active');
+  }
+
+  setInterval(() => goTo(current + 1), 3000);
+}
+
 /* ── Init ─────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
@@ -639,6 +667,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initWaButtons();
 
   renderProducts(getFiltered());
+  initHeroCarousel();
 
   initFilters();
   initSearch();

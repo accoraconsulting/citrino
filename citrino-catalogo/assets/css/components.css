@@ -1782,16 +1782,20 @@
 
 /* ── Mobile ── */
 @media (max-width: 767px) {
-  #chat-widget { bottom: calc(76px + env(safe-area-inset-bottom, 0px)); left: 14px; right: auto; }
+  #chat-widget {
+    bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+    right: 14px;
+    left: auto;
+  }
   .chat-panel {
     width: calc(100vw - 28px);
-    max-height: 60vh;
+    max-height: 58vh;
     border-radius: 18px;
-    left: 14px;
-    right: auto;
-    bottom: calc(140px + env(safe-area-inset-bottom, 0px));
+    right: 14px;
+    left: auto;
+    bottom: calc(148px + env(safe-area-inset-bottom, 0px));
   }
-  .chat-trigger { width: 56px; height: 56px; }
+  .chat-trigger { width: 50px; height: 50px; }
 }
 
 /* ── Respeta prefers-reduced-motion ── */

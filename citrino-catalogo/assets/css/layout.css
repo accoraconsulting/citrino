@@ -174,11 +174,26 @@
 .sparkle-4 { font-size: 10px; top: 72%; right: 8%;  animation-duration: 3.8s; animation-delay: 0.6s; }
 .sparkle-5 { font-size: 16px; top: 80%; left: 25%;  animation-duration: 5s;   animation-delay: 1.8s; }
 
-/* Floating product card */
-.hero-float-card {
+/* ── Hero Carousel ── */
+.hero-carousel {
   position: absolute;
   bottom: 6%;
   right: 2%;
+  width: 240px;
+  z-index: 2;
+}
+
+.hfc-track {
+  position: relative;
+  height: 96px;
+  margin-bottom: 12px;
+}
+
+.hero-float-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 240px;
   background: var(--surface);
   border: 1px solid var(--border-strong);
   border-radius: var(--r-2xl);
@@ -187,17 +202,22 @@
   align-items: center;
   gap: var(--sp-4);
   box-shadow: var(--shadow-gold);
-  animation: floatCard 6s ease-in-out infinite;
-  max-width: 230px;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  z-index: 2;
-  transition: background var(--t-theme), border-color var(--t-theme);
+  transition: background var(--t-theme), border-color var(--t-theme), opacity 0.55s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+.hero-float-card.hfc-active {
+  opacity: 1;
+  pointer-events: auto;
+  animation: floatCard 6s ease-in-out infinite;
 }
 @keyframes floatCard {
   0%, 100% { transform: translateY(0); }
   50%       { transform: translateY(-10px); }
 }
+
 .float-card-img {
   width: 50px;
   height: 64px;
@@ -211,19 +231,41 @@
   transition: background var(--t-theme), border-color var(--t-theme);
 }
 .float-card-content { display: flex; flex-direction: column; gap: 3px; }
+
 .float-card-tag {
   display: inline-block;
   font-size: 9px;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent-strong);
-  background: rgba(217,179,74,0.12);
-  border: 1px solid var(--accent);
   padding: 2px 8px;
   border-radius: var(--r-full);
+  border: 1px solid;
   width: fit-content;
 }
+/* Neon tags */
+.float-tag-dama {
+  color: #FF6B9D;
+  background: rgba(255,107,157,0.1);
+  border-color: #FF6B9D;
+  box-shadow: 0 0 6px rgba(255,107,157,0.55), 0 0 14px rgba(255,107,157,0.2);
+  text-shadow: 0 0 8px rgba(255,107,157,0.9);
+}
+.float-tag-caballero {
+  color: #4DAFFF;
+  background: rgba(77,175,255,0.1);
+  border-color: #4DAFFF;
+  box-shadow: 0 0 6px rgba(77,175,255,0.55), 0 0 14px rgba(77,175,255,0.2);
+  text-shadow: 0 0 8px rgba(77,175,255,0.9);
+}
+.float-tag-unisex {
+  color: #C77DFF;
+  background: rgba(199,125,255,0.1);
+  border-color: #C77DFF;
+  box-shadow: 0 0 6px rgba(199,125,255,0.55), 0 0 14px rgba(199,125,255,0.2);
+  text-shadow: 0 0 8px rgba(199,125,255,0.9);
+}
+
 .float-card-name {
   font-family: var(--font-display);
   font-size: var(--text-base);
@@ -231,10 +273,7 @@
   color: var(--heading);
   line-height: 1.2;
 }
-.float-card-family {
-  font-size: 11px;
-  color: var(--text-muted);
-}
+.float-card-family { font-size: 11px; color: var(--text-muted); }
 .float-card-price {
   font-size: var(--text-sm);
   font-weight: 700;
@@ -242,6 +281,18 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Carousel label */
+.hfc-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--citrino-gold);
+  text-shadow: 0 0 8px rgba(217,179,74,0.9), 0 0 20px rgba(217,179,74,0.4);
+  margin-bottom: 10px;
+  padding-left: 2px;
 }
 
 /* ─────────────────────────────────────────────────────
