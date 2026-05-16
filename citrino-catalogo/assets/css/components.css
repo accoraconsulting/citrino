@@ -868,6 +868,7 @@
   padding: var(--sp-4);
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   transition: opacity var(--t-slow), visibility var(--t-slow);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
@@ -875,6 +876,7 @@
 .modal-overlay.open {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 .modal-container {
   background: var(--surface);
@@ -891,6 +893,17 @@
 }
 .modal-overlay.open .modal-container {
   transform: scale(1) translateY(0);
+}
+
+/* Drag zone for bottom-sheet swipe-to-close — hidden on desktop, shown on mobile via responsive.css */
+.modal-swipe-zone {
+  display: none;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 52px;
+  z-index: 4;
+  cursor: grab;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .modal-close {

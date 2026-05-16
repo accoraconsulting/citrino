@@ -312,8 +312,14 @@ footer        { padding: var(--sp-10) 0 var(--sp-6); }
 /* ── Touch targets ── */
 button, a, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .filter-chip     { min-height: 44px; padding: 0 14px; }
-.card-btn-detail,
-.card-btn-wa     { min-height: 40px; }
+.card-btn-detail { min-height: 44px; touch-action: manipulation; }
+.card-btn-wa     { min-height: 44px; width: 44px; touch-action: manipulation; }
+.card-size-chip  { min-height: 36px; touch-action: manipulation; }
+.size-btn        { touch-action: manipulation; }
+.aroma-cta-btn   { touch-action: manipulation; }
+.bnav-item       { touch-action: manipulation; }
+/* Swipe zone — shown only on mobile */
+.modal-swipe-zone { display: block; }
 
 /* ─────────────────────────────────────────────────────
    sm — 480px (Galaxy Ultra, iPhone Pro Max, etc.)
@@ -477,6 +483,7 @@ button, a, [role="button"] { -webkit-tap-highlight-color: transparent; }
     padding-bottom: 0;
   }
   .modal-container::before { display: none; }
+  .modal-swipe-zone        { display: none; }
   .modal-overlay.open .modal-container {
     transform: scale(1) translateY(0);
     box-shadow: var(--shadow-lg);

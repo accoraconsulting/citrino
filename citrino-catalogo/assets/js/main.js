@@ -639,50 +639,40 @@ function initModal() {
     if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
   });
 
-  /* Prevent page scroll when touching backdrop (outside modal content) */
-  overlay.addEventListener('touchmove', e => {
-    const modalBody = document.getElementById('modal-body');
-    if (!modalBody || !modalBody.contains(e.target)) e.preventDefault();
-  }, { passive: false });
+  /*
+   * Swipe-to-close via a dedicated drag zone at the top of the container.
+   * We intentionally do NOT attach any touchmove listener to the container
+   * itself or to #modal-body — this lets the browser handle #modal-body
+   * scroll natively without any passive:false interference.
+   * The body is already position:fixed when open, so no page-scroll leaks.
+   */
+  const swipeZone = document.createElement('div');
+  swipeZone.className = 'modal-swipe-zone';
+  swipeZone.setAttribute('aria-hidden', 'true');
+  container.prepend(swipeZone);
 
-  /* ── Swipe-down to close (bottom-sheet) ── */
   let swipeStartY = 0;
-  let isSwiping = false;
-  let touchStartedInBody = false;
+  let isSwiping   = false;
 
-  container.addEventListener('touchstart', e => {
-    const body = document.getElementById('modal-body');
+  swipeZone.addEventListener('touchstart', e => {
     swipeStartY = e.touches[0].clientY;
     isSwiping   = false;
-    /* Track if the touch started inside the scrollable content */
-    touchStartedInBody = body ? body.contains(e.target) : false;
     container.style.transition = 'none';
   }, { passive: true });
 
-  container.addEventListener('touchmove', e => {
-    const body = document.getElementById('modal-body');
+  swipeZone.addEventListener('touchmove', e => {
     const dy = e.touches[0].clientY - swipeStartY;
-    /* Read CURRENT scroll position so we don't close while content is scrolled */
-    const currentScroll = body ? body.scrollTop : 0;
-    /* Require a larger drag from inside the content area to avoid blocking scroll */
-    const threshold = touchStartedInBody ? 40 : 10;
-
-    if (!isSwiping && dy > threshold && currentScroll <= 0) {
+    if (dy > 0) {
       isSwiping = true;
-    }
-
-    if (isSwiping && dy > 0) {
       container.style.transform = `translateY(${dy}px)`;
       e.preventDefault();
     }
-    /* When !isSwiping we don't call preventDefault → native scroll works freely */
   }, { passive: false });
 
-  container.addEventListener('touchend', e => {
+  swipeZone.addEventListener('touchend', e => {
     const dy = e.changedTouches[0].clientY - swipeStartY;
     container.style.transition = 'transform 0.32s cubic-bezier(0.32,0.72,0,1)';
-
-    if (isSwiping && dy > 90) {
+    if (isSwiping && dy > 80) {
       container.style.transform = 'translateY(110%)';
       setTimeout(() => {
         container.style.transform  = '';
@@ -690,7 +680,7 @@ function initModal() {
         closeModal();
       }, 320);
     } else {
-      container.style.transform = isSwiping ? 'translateY(0)' : '';
+      container.style.transform = 'translateY(0)';
       setTimeout(() => {
         container.style.transform  = '';
         container.style.transition = '';
