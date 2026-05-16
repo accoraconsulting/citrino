@@ -199,9 +199,9 @@ footer        { padding: var(--sp-10) 0 var(--sp-6); }
 .modal-container {
   width: 100%;
   max-width: 100%;
-  max-height: 91dvh;
-  min-height: 52dvh;
-  border-radius: 22px 22px 0 0;
+  max-height: 93dvh;
+  min-height: 60dvh;
+  border-radius: 24px 24px 0 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -212,32 +212,32 @@ footer        { padding: var(--sp-10) 0 var(--sp-6); }
 }
 .modal-overlay.open .modal-container {
   transform: translateY(0);
-  box-shadow: 0 -16px 56px rgba(0,0,0,0.28), 0 -2px 0 var(--accent);
+  box-shadow: 0 -20px 60px rgba(0,0,0,0.34), 0 -2px 0 var(--accent);
 }
 /* Drag handle */
 .modal-container::before {
   content: '';
   display: block;
-  width: 38px;
-  height: 4px;
+  width: 44px;
+  height: 5px;
   background: var(--border-strong);
-  border-radius: 2px;
-  margin: 12px auto 0;
+  border-radius: 3px;
+  margin: 14px auto 4px;
   flex-shrink: 0;
-  opacity: 0.45;
+  opacity: 0.5;
 }
-/* Close button pinned top-right, no scroll */
+/* Close button pinned top-right */
 .modal-close {
   position: absolute;
-  top: 10px;
+  top: 8px;
   right: 12px;
   float: none;
   margin: 0;
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   z-index: 10;
 }
-/* Scrollable body fills remaining height */
+/* Scrollable body — fills all remaining height */
 #modal-body {
   flex: 1;
   overflow-y: auto;
@@ -245,27 +245,59 @@ footer        { padding: var(--sp-10) 0 var(--sp-6); }
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
 }
+/* Single-column layout */
 .modal-layout {
   grid-template-columns: 1fr;
   min-height: auto;
 }
+/* Image strip */
 .modal-image-col {
   border-right: none;
   border-bottom: 1px solid var(--border);
   border-radius: 0;
-  padding: 10px 20px;
-  max-height: 115px;
-  min-height: 95px;
-  background: radial-gradient(ellipse 70% 80% at 50% 60%, rgba(217,179,74,0.08) 0%, transparent 70%), var(--surface-soft);
+  padding: 14px 24px;
+  height: 164px;
+  min-height: unset;
+  max-height: unset;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse 80% 90% at 50% 50%, rgba(217,179,74,0.1) 0%, transparent 70%),
+    var(--surface-soft);
 }
-.modal-bottle-wrap  { width: 68px; }
-.modal-info-col     { padding: 16px 20px 32px; gap: 12px; }
-.modal-product-name { font-size: 1.35rem; }
-.modal-notes        { grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 10px; }
+/* Contain the bottle SVG */
+.modal-bottle-wrap {
+  width: auto;
+  height: 128px;
+  max-height: 128px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-bottle-wrap svg  { max-height: 128px; width: auto; }
+/* Real product photos */
+.modal-img-real  { width: auto; max-width: 140px; height: 132px; object-fit: contain; border-radius: var(--r-lg); }
+.modal-ref-img   { width: auto; max-width: 140px; height: 132px; object-fit: contain; }
+/* Content area */
+.modal-info-col     { padding: 18px 20px 32px; gap: 14px; }
+.modal-product-name { font-size: 1.45rem; line-height: 1.2; }
+.modal-price        { font-size: var(--text-2xl); }
+.modal-description  { font-size: var(--text-sm); line-height: 1.7; }
+.modal-notes        { grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 12px; }
 .modal-details-row  { flex-wrap: wrap; gap: 8px; }
-.modal-detail-chip  { min-width: 80px; flex: 1; padding: 10px 12px; }
-.modal-footer       { flex-direction: column; padding-top: 14px; gap: 10px; }
-.modal-footer .btn-primary { width: 100%; justify-content: center; font-size: var(--text-sm); padding: 15px; }
+.modal-detail-chip  { min-width: 0; flex: 1; padding: 10px 12px; }
+.size-picker        { gap: 8px; }
+.size-btn           { min-width: 68px; padding: var(--sp-3); }
+.modal-footer       { flex-direction: column; padding-top: 16px; gap: 10px; }
+.modal-footer .btn-primary {
+  width: 100%;
+  justify-content: center;
+  font-size: var(--text-base);
+  padding: 16px;
+  border-radius: var(--r-2xl);
+}
 
 /* ── Bottom nav — 4 ítems siempre visibles ── */
 .bottom-nav {
@@ -330,8 +362,7 @@ button, a, [role="button"] { -webkit-tap-highlight-color: transparent; }
   .contact-actions .btn-primary,
   .contact-actions .btn-secondary { width: auto; }
 
-  .modal-notes  { grid-template-columns: repeat(3, 1fr); }
-  .modal-image-col { max-height: 240px; }
+  .modal-notes { grid-template-columns: repeat(3, 1fr); }
 }
 
 /* ─────────────────────────────────────────────────────
@@ -467,10 +498,16 @@ button, a, [role="button"] { -webkit-tap-highlight-color: transparent; }
     border-right: 1px solid var(--border);
     border-bottom: none;
     border-radius: var(--r-2xl) 0 0 var(--r-2xl);
-    max-height: none;
-    min-height: auto;
+    height: auto;
+    min-height: unset;
+    max-height: unset;
     padding: var(--sp-8) var(--sp-6);
+    background: var(--surface-soft);
   }
+  .modal-bottle-wrap { width: 120px; height: auto; max-height: none; }
+  .modal-bottle-wrap svg { max-height: none; width: auto; }
+  .modal-img-real  { width: 180px; max-width: none; height: 220px; object-fit: cover; }
+  .modal-ref-img   { width: 200px; max-width: none; height: 240px; object-fit: contain; }
   .modal-info-col  { padding: var(--sp-8); gap: var(--sp-5); }
   .modal-product-name { font-size: var(--text-3xl); }
   .modal-notes     { grid-template-columns: repeat(3, 1fr); padding: var(--sp-5); gap: var(--sp-4); }
